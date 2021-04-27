@@ -83,7 +83,7 @@ export default function SeatSelection () {
 
     }
     console.log(data)
-    axios.post('http://localhost:8080/bus/ticket/create', data).then(function (response) {
+    axios.post('https://bus-ticket-booking-app.herokuapp.com/bus/ticket/create', data).then(function (response) {
       if (response.data === true) {
         window.location.href = '/'
         window.location.reload()
