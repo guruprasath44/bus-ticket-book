@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export function resetdata () {
-  const apiUrl = 'http://localhost:8080/bus/admin/reset'
+  const apiUrl = 'https://bus-ticket-booking-app.herokuapp.com/bus/admin/reset'
 
   return axios.post(apiUrl, {
 

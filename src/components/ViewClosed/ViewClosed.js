@@ -7,12 +7,12 @@ export default function ViewClosed () {
   const [details, setDetail] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:8080/bus/ticket/viewClosed').then((res) => {
+    axios.get('https://bus-ticket-booking-app.herokuapp.com/bus/ticket/viewClosed').then((res) => {
       setTickets(res.data)
     }, [])
   })
   const renderTicket = (ticket, index) => {
-    axios.get(`http://localhost:8080/bus/pass/${ticket._id.toString()}`).then((res) => {
+    axios.get(`https://bus-ticket-booking-app.herokuapp.com/bus/pass/${ticket._id.toString()}`).then((res) => {
       setDetail(res.data)
       console.log(details)
     }, [])
