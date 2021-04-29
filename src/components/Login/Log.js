@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import * as logFunc from './loginFunctions.js'
-import './logOrsign.css'
+import './log.css'
 // import { FaFacebookF, FaTwitterSquare } from "react-icons/fa";
 // eslint-disable-next-line react/prop-types
 export default function LogOrsign ({ history }) {
@@ -22,7 +22,10 @@ export default function LogOrsign ({ history }) {
       .then(data => {
         // eslint-disable-next-line react/prop-types
         history.push('/Admin')
-        window.location.href = '/Admin/home'
+        setTimeout(function () {
+          window.location.href = '/Admin/home'
+        }, 2000)
+        alert('Login Successfull')
         sessionStorage.setItem('admin', 'admin')
         console.log(data)
       })

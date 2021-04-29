@@ -92,7 +92,8 @@ export default function SeatSelection () {
         window.location.href = '/book'
       }
     }).catch(function (error) {
-      alert(error)
+      alert('The seat you are looking for is already booked')
+      window.location.reload()
       console.log(error)
     })
   }
@@ -118,7 +119,7 @@ export default function SeatSelection () {
     })
   }
   return (
-        <div className="ss">
+        <div className="ss1">
             <div className="row">
                 <div className="column1">
                     <div className="plane">
@@ -349,7 +350,7 @@ export default function SeatSelection () {
                         </form>
 
                         <div>
-                            <button onClick={e => handleSubmitDetails(e)} className="btn btn-info seatBT">
+                            <button onClick={e => handleSubmitDetails(e)} className="btn btn-info seatBTn">
                                 Confirm Details
                             </button>
                         </div>

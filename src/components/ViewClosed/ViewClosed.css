@@ -80,7 +80,7 @@ ol {
 .seat label {
     display: block;
     position: relative;
-    width: 100%;
+    width: 1000%;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
@@ -179,9 +179,9 @@ ol {
 
 .columna {
     float: left;
-    width: 40%;
+    width: 20%;
     margin-left: 80px;
-    height: 500px;
+    height: 300px;
     background-image: url('https://media0.giphy.com/media/gFnj1GFJBvehq0x9EV/giphy-preview.gif');
     background-size: 100%;
     background-repeat: no-repeat;
@@ -206,11 +206,12 @@ ol {
 .info:hover .extra-info {
     display: block;
   }
-.column2 {
+.columnb {
     float: left;
     width: 40%;
     padding: 0;
     margin: 0;
+    height: 200%;
    
 }
 
@@ -224,15 +225,16 @@ ol {
 
 .ss {
     /* width: auto; */
-    width: 120%;
-    margin-left: -150px;
+    width: 110%;
+    margin-left: -50px;
+    height: 300px;
     border: 1px solid #70b4cf;
     
 }
 
 .seatInfo {
     /* position: relative;  */
-    left:-30px;
+    left:-20px;
     margin-top:49px;
     border: 1px solid white;
     height: 64px;
@@ -255,7 +257,7 @@ ol {
 
 .seatBT{
     display:block;
-    margin-left:10%;
+    margin-left:20%;
     width: 80%;
 }
 

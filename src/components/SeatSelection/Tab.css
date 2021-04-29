@@ -198,7 +198,7 @@ ol {
     clear: both;
 }
 
-.ss {
+.ss1 {
     /* width: auto; */
     width: 120%;
     margin-left: -150px;
@@ -230,9 +230,10 @@ ol {
     margin-top:5px;
 }
 
-.seatBT{
+.seatBTn{
     display:block;
-    margin-left:10%;
+    margin-left:20%;
+    width: 60%;
 }
 
 .hideBT{

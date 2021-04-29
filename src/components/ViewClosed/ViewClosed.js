@@ -4,43 +4,27 @@ import './ViewClosed.css'
 import * as ReactBootStrap from 'react-bootstrap'
 export default function ViewClosed () {
   const [tickets, setTickets] = useState([])
-  const [details, setDetail] = useState([])
+  // eslint-disable-next-line no-unused-vars
+  const [details, setDetail] = useState(false)
 
   useEffect(() => {
     axios.get('https://bus-ticket-booking-app.herokuapp.com/bus/ticket/viewClosed').then((res) => {
       setTickets(res.data)
-    }, [])
-  })
-  const renderTicket = (ticket, index) => {
-    axios.get(`https://bus-ticket-booking-app.herokuapp.com/bus/pass/${ticket._id.toString()}`).then((res) => {
-      setDetail(res.data)
-      console.log(details)
-    }, [])
+    })
+  }, [])
+  return (<>
+  { tickets.map((i, j) => {
     return (
-
-                <button title={details.name} className="btn btn-info hov seat-info" key={index} >
-                    <td style={{ backgroundColor: 'darkblue', borderColor: 'darkblue', width: '40px' }}>{ticket.seatID}</td>
-                </button>
-
-    )
-  }
-
-  return (
-        <div className="ss">
+      <>
+       <div className="ss">
             <div className="row">
-                <div className="columnb">
-                    <div className="plane">
-                        {/* <form >
 
-                        </form> */}
-                    </div>
-                </div>
                 <div className="column2 ">
                     <div className="seatInfo  ">
 
                         <div>
                             <button style={{ marginLeft: '0px', width: '100%', height: '60px' }} className="btn  btn-info  seatBT">
-                              View Closed Tickets
+                               Closed Tickets
                             </button>
 
                             <br></br>
@@ -48,24 +32,51 @@ export default function ViewClosed () {
                               <br></br>
                              <tbody className="info" >
 
-                            {/* <span class="extra-info ">
-                            <ul >
-                            <li>Name:{details.name}</li>
-                            <li>Age : { details.age}</li>
+                <button onClick={() => setDetail(true)} className="btn btn-info " >
+                    <td style={{ backgroundColor: 'darkblue', borderColor: 'darkblue', width: '40px' }}>{i.seatID}</td>
+                </button>
 
-                            <li>Email ID:{ details.email}</li>
-                        </ul>
+                {ShowClosed ? (<ShowClosed id= {i._id} setDetail={setDetail}/>) : null}
 
-                            </span> */}
-                            {tickets.map(renderTicket)}
-                            </tbody>
+            </tbody>
 
-                             </ReactBootStrap.Table>
+        </ReactBootStrap.Table>
 
-                             </div>
-                        </div>
-                   </div>
-             </div>
-        </div>
+                    </div>
+              </div>
+       </div>
+    </div>
+</div>
+</>
+
+    )
+  })}
+    </>
+  )
+}
+
+const ShowClosed = (id, setDetail) => {
+  const [name, setname] = useState()
+  const [email, setemail] = useState()
+  const [age, setage] = useState()
+  useEffect(() => {
+    axios.get(`https://bus-ticket-booking-app.herokuapp.com/bus/pass/${id.id}`).then((res) => {
+      setname(res.data.name)
+      setemail(res.data.email)
+      setage(res.data.age)
+    })
+  }, [id])
+
+  return (
+
+                <button className="btn  " style={{ textAlign: 'left', marginleft: '-40px', color: 'white' }}>
+                  Name:{name}
+                  <br />
+                  Email:{email}
+                  <br />
+                  Age:{age}
+
+                </button>
+
   )
 }
